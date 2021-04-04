@@ -1,7 +1,8 @@
 Hello Guys! makae first virtuval Enviromenta activate pannanum
 
-Run this in terminal:
-    source venv/bin/activate
+Run this in terminal to install dependencies:
+    pip install beautifulsoup4
+    pip install requests
 
 Then, run 
 
