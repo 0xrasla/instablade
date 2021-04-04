@@ -1,4 +1,4 @@
-Hello Guys! makae first virtuval Enviromenta activate pannanum
+Hello Guys! 
 
 Run this in terminal to install dependencies:
     pip install beautifulsoup4
