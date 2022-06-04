@@ -1,0 +1,27 @@
+{% extends "base.htm" %}
+
+{% block title %}
+{% if title %}
+
+{{ title }}
+
+{% else %}
+
+Home test
+
+{% endif %}
+{% endblock title %}
+
+{% block body %}
+<main>
+    <h1>
+        Download Your Desired Insta Videos/Images
+    </h1>
+    <form action="/download" method="post">
+        <input type="text" required name="url" id="url">
+        <button type="submit">
+            Download
+        </button>
+    </form>
+</main>
+{% endblock body %}
