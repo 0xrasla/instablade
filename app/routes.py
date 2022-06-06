@@ -12,7 +12,21 @@ def download():
     print(request.method)
     if(request.method == "POST"):
         url = request.form['url']
-        response = picture_download(url, "testvideo")
+        response = video_downloader(url, "testvideo")
         print(response)
         return redirect(url_for('routes.index'))
     return redirect(url_for("routes.index"))
+
+@routes.route('/download_pic', methods=["GET","POST"])
+def download_pic():
+    print(request.method)
+    if(request.method == "POST"):
+        url = request.form['url']
+        response = picture_download(url, "testpic")
+        print(response)
+        return redirect(url_for('routes.index'))
+    return redirect(url_for("routes.index"))
+
+@routes.route('/about')
+def about():
+    return render_template('about.htm', title='About')
