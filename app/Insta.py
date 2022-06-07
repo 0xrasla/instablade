@@ -6,7 +6,6 @@ def video_downloader(url, video_name):
     try:
         print("Downloading video...")
         _id = url.split("https://www.instagram.com/")[1].split("/")[0]
-        print(_id)
         response = requests.get("https://www.instagram.com/p/{}/?__a=1".format(_id), headers={'User-agent': 'your bot 0.1'})
         
         with open("res.json", "w") as f:
