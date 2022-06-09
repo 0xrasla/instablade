@@ -1,27 +1,8 @@
-{% extends "base.htm" %}
+{% extends "base.htm" %} {% block title %} {% if title %} {{ title }} {% else %}
+Home test {% endif %} {% endblock title %} {% block body %}
 
-{% block title %}
-{% if title %}
-
-{{ title }}
-
-{% else %}
-
-Home test
-
-{% endif %}
-{% endblock title %}
-
-{% block body %}
-<main>
-    <h1>
-        Download Your Desired Insta Videos/Images
-    </h1>
-    <form action="/download" method="post">
-        <input type="text" required name="url" id="url"> <br>
-        <button type="submit">
-            Download
-        </button>
-    </form>
+<main class="container">
+    <h1>One Place to Download all Instagram Stuffs!</h1>
+    {% include("download.htm") %}
 </main>
 {% endblock body %}

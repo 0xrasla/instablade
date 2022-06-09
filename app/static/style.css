@@ -4,11 +4,19 @@ body {
   background-color: black;
   color: white;
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body h1 {
+  font-family: "Joan", cursive;
+  margin-top: 30px;
 }
 
 body input {
   width: 20%;
-  height: 40px;
+  height: 50px;
   border-radius: 5px;
   text-indent: 4px;
   font-family: "Joan", serif;
@@ -20,16 +28,24 @@ body button {
   font-family: "Joan", serif;
   padding: 10px;
   font-size: large;
-  background-color: aquamarine;
+  background-color: black;
   margin-top: 20px;
+  border: 2px solid white;
+  color: white;
 }
 
 body button:hover {
-  background-color: #e2e2e2;
+  background-color: #ffffff;
+  border: 2px solid black;
+  color: black;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   cursor: pointer;
   -webkit-transition: 1s all;
   transition: 1s all;
+}
+
+body .container-custom input {
+  width: 40%;
 }
 /*# sourceMappingURL=style.css.map */
