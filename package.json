@@ -1,0 +1,25 @@
+{
+  "name": "instablade",
+  "version": "1.0.0",
+  "description": "A Statistics Site for Instagram",
+  "main": "index.js",
+  "repository": "https://github.com/0xrasla/Instablade.git",
+  "author": "rasla <programmer.rasla@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
