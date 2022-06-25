@@ -1,36 +1,43 @@
 const axios = require("axios");
-
-//https%3A%2F%2Fwww.instagram.com%2Fp%2FCeT3oxNM7N0%2F%3Futm_source%3Dig_web_copy_link
-
 class Download {
-  constructor(url) {
-    this.url = url;
+  constructor(id) {
+    this.id = id;
     this.axios = axios;
   }
 
-  // download what files specified in the url
+  // download what files specified in the id
   async download() {
-    const formatedUrl = this.getFormaterdUrl(this.url);
-    const response = await this.getResponseBack(formatedUrl);
-    const type = this.getType(response);
+    try {
+      const formatedUrl = this.getFormaterdUrl(this.id);
+      const response = await this.getResponseBack(formatedUrl);
+      console.log(response.data);
+      const type = this.getType(response);
 
-    if (type == "image") {
-      this.download_image();
-    } else if (type == "video") {
-      this.download_video();
-    } else {
-      console.log("Invalid url");
+      if (type == "image") {
+        return this.download_image(response);
+      } else if (type == "video") {
+        return this.download_video(response);
+      } else {
+        return {
+          msg: "Please, check the id",
+        };
+      }
+    } catch (e) {
+      console.log(e);
+      return {
+        msg: "Error while downloading",
+        error: e,
+      };
     }
   }
 
   async getResponseBack(url) {
-    const niceUrl = this.getFormaterdUrl(url);
-    const response = await this.axios.get(niceUrl);
+    const response = await this.axios.get(url);
     return response;
   }
 
-  getFormaterdUrl(url) {
-    return url + "?__a=1";
+  getFormaterdUrl(id) {
+    return "https://www.instagram.com/p/" + id + "?__a=1";
   }
 
   getType(response) {
@@ -46,13 +53,21 @@ class Download {
   }
 
   async download_image(res) {
+    // get actual url
+    const url = res.data.graphql.shortcode_media.display_url;
+    const file = await this.axios.get(url, { responseType: "stream" });
+    const fileName = "instagram_" + Date.now() + ".png";
+    const filePath = `./${fileName}`;
+    file.data.pipe(fs.createWriteStream(filePath));
+
     return {
       msg: "Downloading Image",
-      res: res,
+      imagePath: filePath,
     };
   }
 
   async download_video(res) {
+    console.log("Video");
     return {
       msg: "Downloading Video",
       res: res,

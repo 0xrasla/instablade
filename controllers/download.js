@@ -1,9 +1,9 @@
 const downloadRouter = require("express").Router();
 const Download = require("../utils/download");
 
-downloadRouter.get("/", (req, res) => {
-  const { url } = req.query;
-  const download = new Download(url);
+downloadRouter.get("/:id", (req, res) => {
+  const { id } = req.params;
+  const download = new Download(id);
   download
     .download()
     .then((response) => {
