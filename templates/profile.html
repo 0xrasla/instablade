@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Instagram Profile Info{% endblock %}
+{% block content %}
+<h1 class="title has-text-centered">Instagram Profile Info</h1>
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-128x128 is-centered">
+      {% if profile.profile_pic_url %}
+      <img
+        src="{{ url_for('profile_pic', filename=profile.profile_pic_url) }}"
+        alt="Profile picture of {{ profile.username }}"
+      />
+      {% else %}
+      <img
+        src="https://via.placeholder.com/150"
+        alt="Profile picture of {{ profile.username }}"
+      />
+      {% endif %}
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4">{{ profile.username }}</p>
+        <p class="subtitle is-6">{{ profile.full_name }}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <p>{{ profile.biography }}</p>
+      <br />
+      <p><strong>Followers:</strong> {{ profile.followers }}</p>
+      <p><strong>Following:</strong> {{ profile.followees }}</p>
+      <p><strong>Posts:</strong> {{ profile.mediacount }}</p>
+      <br />
+      <a href="https://www.instagram.com/{{ profile.username }}" target="_blank"
+        >View Profile on Instagram</a
+      >
+    </div>
+  </div>
+</div>
+<br />
+<a class="button is-link" href="/">Back</a>
+{% endblock %}

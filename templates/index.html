@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Get Instagram User Info{% endblock %}
+{% block content %}
+<section class="hero is-dark is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title has-text-white">Get Instagram User Info</h1>
+      <h2 class="subtitle has-text-white">
+        Enter the Instagram username to fetch profile details like followers,
+        following, posts, and more.
+      </h2>
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="box" style="background-color: #363636">
+            <form action="/profile" method="post">
+              <div class="field">
+                <label class="label has-text-white" for="username"
+                  >Username</label
+                >
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="e.g. johndoe"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="control has-text-centered">
+                <button class="button is-link" type="submit">Get Info</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
